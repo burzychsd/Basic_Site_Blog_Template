@@ -1,7 +1,9 @@
+// DEPENDENCIES
 import React from "react"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+// COMPONENTS
+import Layout from "../components/templates/Layout"
+import SEO from "../components/templates/Seo"
 
 const NotFoundPage = () => (
   <Layout>
