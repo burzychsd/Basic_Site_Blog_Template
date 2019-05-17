@@ -24,11 +24,13 @@
     "react-redux": "^7.0.3",
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.14",
-    "styled-components": "^4.2.0",
-    "tailwind.macro": "^0.5.10"
+    "styled-components": "^4.2.0"
   },
   "devDependencies": {
+    "babel-plugin-macros": "^2.5.1",
+    "babel-preset-gatsby": "^0.1.11",
     "prettier": "^1.17.1",
+    "tailwind.macro": "^0.5.10",
     "tailwindcss": "^1.0.1"
   },
   "keywords": [
