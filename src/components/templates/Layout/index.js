@@ -1,6 +1,9 @@
 // DEPENDENCIES
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
+
+// STYLES
+import './Layout.css'
 
 const Layout = ({ children }) => (
   <div id='site_wrapper' style={{ 

@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
-const Img = styled.img`
+export const Img = styled.img`
     ${props => props.reset ? null : tw`w-full h-auto`};
 `
 
