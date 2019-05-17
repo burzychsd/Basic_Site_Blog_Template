@@ -6,7 +6,7 @@ import tw from 'tailwind.macro'
 import Layout from '../components/templates/Layout'
 import SEO from '../components/templates/Seo'
 import Flex from '../components/atoms/Flex'
-import NavLink from '../components/atoms/NavLink'
+import Button from '../components/atoms/Button'
 
 const IndexPage = () => (
   <Layout>
@@ -14,7 +14,7 @@ const IndexPage = () => (
     <Flex as='section'>
       <h1>Basic Site/Blog Template</h1>
       <Flex reset css={tw`w-full sm:w-1/2 h-auto self-start justify-center bg-black`}>
-        
+        <Button>Button</Button>
       </Flex>
     </Flex>
   </Layout>
