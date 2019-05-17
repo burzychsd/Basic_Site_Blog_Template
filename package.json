@@ -30,6 +30,8 @@
   "devDependencies": {
     "babel-plugin-macros": "^2.5.1",
     "babel-preset-gatsby": "^0.1.11",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "prettier": "^1.17.1",
     "tailwind.macro": "^0.5.10",
     "tailwindcss": "^1.0.1"
