@@ -224,6 +224,8 @@ module.exports = {
       'Courier New',
       'monospace',
     ],
+    heading: ['Rubik', 'sans-serif'],
+    body: ['Karla', 'sans-serif']
   },
 
   /*
