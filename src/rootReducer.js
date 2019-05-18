@@ -1,9 +1,10 @@
 // combines all reducers
 import { combineReducers } from 'redux'
-import { mobileMenuReducer } from './components/organisms/Header/reducers';
+import { mobileMenuReducer, logoReducer } from './components/organisms/Header/reducers';
 
 const rootReducer = combineReducers({
-    mobileMenu: mobileMenuReducer
+    mobileMenu: mobileMenuReducer,
+    logo: logoReducer
 });
 
 export default rootReducer

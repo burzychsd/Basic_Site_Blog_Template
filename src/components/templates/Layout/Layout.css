@@ -44,3 +44,31 @@
     transform: scale(2);
     transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
+
+.b-highlight > path:last-child {
+    opacity: 1;
+}
+
+.b-highlight--active > path:last-child {
+    opacity: 0;
+}
+
+.b-highlight > path:nth-child(2), .b-highlight > path:first-child {
+    opacity: 0;
+}
+
+.b-highlight--active > path:nth-child(2), .b-highlight--active > path:first-child {
+    opacity: 1;
+}
+
+.b-highlight--active > path:last-child, .b-highlight--active > path:nth-child(2) {
+    transition: opacity 1.6s ease;
+}
+
+.b-highlight > path:last-child, .b-highlight > path:nth-child(2) {
+    transition: opacity 0.6s ease;
+}
+
+.b-highlight > path:first-child, .b-highlight--active > path:first-child {
+    transition: opacity 0.8s ease;
+}

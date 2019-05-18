@@ -15,7 +15,7 @@ const Layout = ({ children }) => (
     position: 'relative'
   }}>
     <Header height={64} />
-    <main style={{ paddingTop: 'calc(64px + 1rem)' }}>{children}</main>
+    <main style={{ paddingTop: 'calc(64px + 1.5rem)' }}>{children}</main>
     <footer></footer>
   </div>
 )

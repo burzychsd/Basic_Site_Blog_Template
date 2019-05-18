@@ -8,24 +8,22 @@ import PropTypes from 'prop-types'
 import Flex from './../../atoms/Flex'
 import Navigation from './../../molecules/Navigation'
 
-// IMAGE
-import logo from './../../../images/logo.svg'
-
 // ACTIONS
-import { setMobileMenuStatus } from './actions'
+import { setMobileMenuStatus, setLogoStatus } from './actions'
 
-const Header = ({ setMobileMenuStatus, height }) => {
+const Header = ({ setMobileMenuStatus, setLogoStatus, logoStatus, height }) => {
 
     const handleMobileMenu = () => setMobileMenuStatus()
 
     return (
-        <Flex as='header' reset css={tw`w-full h-auto absolute z-40`} style={{ top: '1rem', right: 0, left: 0 }}>
+        <Flex as='header' reset css={tw`w-full h-auto absolute z-40`} style={{ top: '1.5rem', right: 0, left: 0 }}>
             <Navigation 
             links={[`Home`, `About`, `Blog`, `Contact`]}
             mobile={false}
             height={height}
-            logo={logo}
-            onClickHamburger={handleMobileMenu} />
+            onClickHamburger={handleMobileMenu}
+            onClickLogo={setLogoStatus}
+            logoStatus={logoStatus} />
         </Flex>
     )
 }
@@ -34,4 +32,8 @@ Header.propTypes = {
     height: PropTypes.number.isRequired
 }
 
-export default connect(null, { setMobileMenuStatus })(Header)
+const mapStateToProps = state => ({
+    logoStatus: state.logo.logoStatus
+})
+
+export default connect(mapStateToProps, { setMobileMenuStatus, setLogoStatus })(Header)
