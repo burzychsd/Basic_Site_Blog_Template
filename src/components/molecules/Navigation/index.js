@@ -17,11 +17,11 @@ const Navigation = ({ links, mobile, height, onClickHamburger, onClickLogo, logo
     )
 
     return (
-        <Flex as='nav' reset css={tw`w-full px-4 items-center justify-between`} style={{ height: height }}>
-            <NavLink to='/'><Logo className={`${logoStatus ? 'b-highlight b-highlight--active' : 'b-highlight'}`} style={{ cursor: 'pointer', height: 55 }} onClick={onClickLogo} /></NavLink>
+        <Flex as='nav' reset css={tw`w-full px-6 items-center justify-between`} style={{ height: height }}>
+            <NavLink reset='true' to='/' style={{ height: 55 }}><Logo className={`${logoStatus ? 'b-highlight b-highlight--active' : 'b-highlight'}`} style={{ cursor: 'pointer', height: 55 }} onClick={onClickLogo} /></NavLink>
             {
                 mobile ? 
-                <Hamburger style={{ width: 50, height: 25, cursor: 'pointer' }} onClick={onClickHamburger} /> : 
+                <Hamburger style={{ width: 'auto', height: 20, cursor: 'pointer', justifyContent: 'space-between', background: 'transparent' }} onClick={onClickHamburger} /> : 
                 <Flex as='ul' reset css={tw`list-none`}>
                     {navLinks}
                 </Flex>

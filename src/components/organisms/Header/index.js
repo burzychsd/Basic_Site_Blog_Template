@@ -11,7 +11,7 @@ import Navigation from './../../molecules/Navigation'
 // ACTIONS
 import { setMobileMenuStatus, setLogoStatus } from './actions'
 
-const Header = ({ setMobileMenuStatus, setLogoStatus, logoStatus, height }) => {
+const Header = ({ setMobileMenuStatus, setLogoStatus, logoStatus, height, width }) => {
 
     const handleMobileMenu = () => setMobileMenuStatus()
 
@@ -19,7 +19,7 @@ const Header = ({ setMobileMenuStatus, setLogoStatus, logoStatus, height }) => {
         <Flex as='header' reset css={tw`w-full h-auto absolute z-40`} style={{ top: '1.5rem', right: 0, left: 0 }}>
             <Navigation 
             links={[`Home`, `About`, `Blog`, `Contact`]}
-            mobile={false}
+            mobile={width <= 500 ? true : false}
             height={height}
             onClickHamburger={handleMobileMenu}
             onClickLogo={setLogoStatus}
@@ -29,7 +29,8 @@ const Header = ({ setMobileMenuStatus, setLogoStatus, logoStatus, height }) => {
 }
 
 Header.propTypes = {
-    height: PropTypes.number.isRequired
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired
 }
 
 const mapStateToProps = state => ({

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes fadeInImg {
@@ -46,11 +47,16 @@
 }
 
 .b-highlight > path:last-child {
-    opacity: 1;
+    fill: #393E41;
+    transform: translateX(0);
+    transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
+    box-shadow: none;
 }
 
 .b-highlight--active > path:last-child {
-    opacity: 0;
+    transform: translateX(-31px);
+    fill: #9EE493;
+    transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .b-highlight > path:nth-child(2), .b-highlight > path:first-child {
@@ -61,11 +67,11 @@
     opacity: 1;
 }
 
-.b-highlight--active > path:last-child, .b-highlight--active > path:nth-child(2) {
+.b-highlight--active > path:nth-child(2) {
     transition: opacity 1.6s ease;
 }
 
-.b-highlight > path:last-child, .b-highlight > path:nth-child(2) {
+.b-highlight > path:nth-child(2) {
     transition: opacity 0.6s ease;
 }
 

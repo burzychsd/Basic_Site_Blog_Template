@@ -8,13 +8,13 @@ import PropTypes from 'prop-types'
 import Flex from './../../atoms/Flex'
 
 export const Bar = styled.div`
-    ${props => props.reset ? null : tw`w-11/12 h-5 bg-black rounded-sm`};
+    ${props => props.reset ? null : tw`bg-black rounded-sm self-end`};
 `
 
 const Hamburger = ({ style, onClick, css }) => (
     <Flex style={style} onClick={onClick}>
-        <Bar reset={css ? true : false} css={css} />
-        <Bar reset={css ? true : false} css={css} />
+        <Bar reset={css ? true : false} css={css} style={{ width: 40, height: 3 }} />
+        <Bar reset={css ? true : false} css={css} style={{ width: 30, height: 3 }} />
     </Flex>
 )
 
