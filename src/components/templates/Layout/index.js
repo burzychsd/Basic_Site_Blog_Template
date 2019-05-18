@@ -2,6 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// COMPONENTS
+import Header from './../../organisms/Header'
+
 // STYLES
 import './Layout.css'
 
@@ -9,8 +12,10 @@ const Layout = ({ children }) => (
   <div id='site_wrapper' style={{ 
     margin: `0 auto`,
     maxWidth: 960,
+    position: 'relative'
   }}>
-    <main>{children}</main>
+    <Header height={64} />
+    <main style={{ paddingTop: 'calc(64px + 1rem)' }}>{children}</main>
     <footer></footer>
   </div>
 )
