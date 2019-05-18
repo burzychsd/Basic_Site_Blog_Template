@@ -10,6 +10,7 @@ import Button from '../components/atoms/Button'
 import LazyLoader from '../components/atoms/LazyLoader'
 import Heading from '../components/atoms/Heading'
 import Text from '../components/atoms/Text'
+import FormField from '../components/atoms/FormField'
 
 const IndexPage = () => (
   <Layout>
