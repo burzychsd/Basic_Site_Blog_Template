@@ -12,9 +12,11 @@ export const Bar = styled.div`
 `
 
 const Hamburger = ({ style, onClick, css }) => (
-    <Flex style={style} onClick={onClick}>
-        <Bar reset={css ? true : false} css={css} style={{ width: 40, height: 3 }} />
-        <Bar reset={css ? true : false} css={css} style={{ width: 30, height: 3 }} />
+    <Flex className='hamburger' style={style} onClick={onClick}>
+        <Bar className='bar_hamburger' reset={css ? true : false} css={css} style={{ width: 40, height: 3 }} />
+        <div className='bar_hamburger--hidden'></div>
+        <div className='bar_hamburger--hidden'></div>
+        <Bar className='bar_hamburger' reset={css ? true : false} css={css} style={{ width: 30, height: 3 }} />
     </Flex>
 )
 

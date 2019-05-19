@@ -12,6 +12,8 @@
     to { opacity: 1; }
 }
 
+/* LAZY LOADER STYLES */
+
 .img-loading {
     opacity: 0;
     width: 100%;
@@ -26,6 +28,8 @@
     animation-duration: 0.7s;
     animation-delay: 0.1s;
 }
+
+/* NAVLINK STYLES */
 
 .NavLink--active:before {
     content: '';
@@ -45,6 +49,8 @@
     transform: scale(2);
     transition: transform 0.6s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
+
+/* LOGO STYLES */
 
 .b-highlight > path:last-child {
     fill: #393E41;
@@ -77,4 +83,50 @@
 
 .b-highlight > path:first-child, .b-highlight--active > path:first-child {
     transition: opacity 0.8s ease;
+}
+
+/* HAMBURGER STYLES */
+
+.hamburger {
+    position: relative;
+}
+
+.hamburger > .bar_hamburger,
+.hamburger:hover > .bar_hamburger--hidden {
+    transform: scaleX(1);
+}
+
+.hamburger > .bar_hamburger--hidden {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 3px;
+    background: #94B0DA;
+}
+
+.hamburger > .bar_hamburger--hidden:nth-child(2) {
+    top: 0;
+    width: 40px;
+}
+
+.hamburger > .bar_hamburger--hidden:nth-child(3) {
+    bottom: 0;
+    width: 30px;
+}
+
+.hamburger:hover > .bar_hamburger,
+.hamburger > .bar_hamburger--hidden {
+    transform: scaleX(0);
+}
+
+.hamburger > .bar_hamburger,
+.hamburger:hover > .bar_hamburger {
+    transition: transform 0.4s ease;
+    transform-origin: 100% 0;
+}
+
+.hamburger > .bar_hamburger--hidden,
+.hamburger:hover > .bar_hamburger--hidden {
+    transition: transform 0.4s ease;
+    transform-origin: 0% 0;
 }
