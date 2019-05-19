@@ -1,7 +1,6 @@
 // DEPENDENCIES
 import React from 'react'
 import tw from 'tailwind.macro'
-import shortid from 'shortid'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
@@ -9,26 +8,18 @@ import NavLink from '../../atoms/NavLink'
 import Flex from '../../atoms/Flex'
 import Hamburger from '../Hamburger'
 import Logo from './../../../images/logo.svg'
+import NavLinks from './../NavLinks'
 
-const Navigation = ({ links, mobile, height, onClickHamburger, onClickLogo, logoStatus }) => {
-
-    const navLinks = links.map((link, i) => 
-        <NavLink key={shortid.generate()} to={i === 0 ? '/' : `/${link.toLowerCase().replace(/\s+/g, '-')}`} activeClassName='NavLink--active'>{link}</NavLink>
-    )
-
-    return (
-        <Flex as='nav' reset css={tw`w-full px-6 items-center justify-between`} style={{ height: height }}>
-            <NavLink reset='true' to='/' style={{ height: 55 }}><Logo className={`${logoStatus ? 'b-highlight b-highlight--active' : 'b-highlight'}`} style={{ cursor: 'pointer', height: 55 }} onClick={onClickLogo} /></NavLink>
-            {
-                mobile ? 
-                <Hamburger style={{ width: 'auto', height: 20, cursor: 'pointer', justifyContent: 'space-between', background: 'transparent' }} onClick={onClickHamburger} /> : 
-                <Flex as='ul' reset css={tw`list-none`}>
-                    {navLinks}
-                </Flex>
-            }
-        </Flex>
-    )
-}
+const Navigation = ({ links, mobile, height, onClickHamburger, onClickLogo, logoStatus }) => (
+    <Flex as='nav' reset css={tw`w-full px-6 items-center justify-between`} style={{ height: height }}>
+        <NavLink reset='true' to='/' style={{ height: 55 }}><Logo className={`${logoStatus ? 'b-highlight b-highlight--active' : 'b-highlight'}`} style={{ cursor: 'pointer', height: 55 }} onClick={onClickLogo} /></NavLink>
+        {
+            mobile ? 
+            <Hamburger style={{ width: 'auto', height: 20, cursor: 'pointer', justifyContent: 'space-between', background: 'transparent' }} onClick={onClickHamburger} /> : 
+            <NavLinks links={links} css={tw`list-none`} />
+        }
+    </Flex>
+)
 
 Navigation.propTypes = {
     links: PropTypes.array.isRequired,
