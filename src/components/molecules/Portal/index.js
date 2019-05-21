@@ -5,14 +5,14 @@ import PropTypes from 'prop-types'
 
 const portalRoot = typeof document !== `undefined` ? document.getElementById('portal') : null
 
-const Portal = ({ children, cssPortal, onClick, status, containerStyles }) => {
+const Portal = ({ children }) => {
     let el = typeof document !== `undefined` ? document.createElement('div') : null
 
     useEffect(() => {
         portalRoot.appendChild(el)
 
         return () => { portalRoot.removeChild(el) }
-    })
+    }, [])
 
     if (el) {
         return ReactDOM.createPortal(

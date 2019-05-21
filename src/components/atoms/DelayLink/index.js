@@ -5,7 +5,10 @@ import { Link } from 'gatsby'
 import { Location } from '@reach/router'
 import PropTypes from 'prop-types'
 
-const DelayLink = ({ delay, to, click, children, style, activeClassName }) => {
+const DelayLink = (props) => {
+
+    const { delay, to, click, children, style, activeClassName } = props
+
     const handleClick = (e, location) => {
         e.stopPropagation()
         e.preventDefault()
@@ -18,11 +21,17 @@ const DelayLink = ({ delay, to, click, children, style, activeClassName }) => {
 
     }
 
+    const linkProps = {
+        to,
+        activeClassName,
+        style
+    }
+
     return (
         <Location>
             {
                 ({ location }) => (
-                    <Link to={to} onClick={e => handleClick(e, location)} activeClassName={activeClassName} style={style}>{children}</Link>
+                    <Link {...linkProps} onClick={e => handleClick(e, location)}>{children}</Link>
                 )
             }
         </Location>

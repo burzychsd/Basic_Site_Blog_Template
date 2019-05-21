@@ -9,7 +9,9 @@ import Flex from './../Flex'
 
 const _loaded = {}
 
-const LazyLoader = ({ src, alt, style, loadedClassName, loadingClassName, onClick }) => {
+const LazyLoader = (props) => {
+
+    const { src, alt, style, loadedClassName, loadingClassName, onClick } = props
 
     const [ loaded, setLoaded ] = useState(_loaded[src])
 
@@ -20,16 +22,19 @@ const LazyLoader = ({ src, alt, style, loadedClassName, loadingClassName, onClic
 
     const className = `${loaded ? loadedClassName : loadingClassName}`
 
+    const imgProps = {
+        src,
+        alt,
+        className,
+        onLoad,
+        onClick,
+        style
+    }
+
     return (
         <Flex reset css={tw`bg-grey-lighter`}>
             <LazyLoad>
-                <Img
-                src={src}
-                alt={alt}
-                className={className}
-                onLoad={onLoad}
-                onClick={onClick}
-                style={style} />
+                <Img {...imgProps} />
             </LazyLoad>
         </Flex>
     )

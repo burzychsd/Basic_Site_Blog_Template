@@ -11,14 +11,32 @@ export const Bar = styled.div`
     ${props => props.reset ? null : tw`bg-black rounded-sm self-end`};
 `
 
-const Hamburger = ({ style, onClick, css }) => (
-    <Flex className='hamburger' style={style} onClick={onClick}>
-        <Bar className='bar_hamburger' reset={css ? true : false} css={css} style={{ width: 40, height: 3 }} />
-        <div className='bar_hamburger--hidden'></div>
-        <div className='bar_hamburger--hidden'></div>
-        <Bar className='bar_hamburger' reset={css ? true : false} css={css} style={{ width: 30, height: 3 }} />
-    </Flex>
-)
+const Hamburger = (props) => {
+
+    const { style, onClick, css } = props
+
+    const containerProps = {
+        className: `hamburger`,
+        displayNone: true,
+        style,
+        onClick: () => onClick('open')
+    }
+
+    const barProps = {
+        className: `bar_hamburger`,
+        reset: css ? true : false,
+        css
+    }
+
+    return (
+        <Flex {...containerProps}>
+            <Bar {...barProps} style={{ width: 40, height: 3 }} />
+            <div className='bar_hamburger--hidden'></div>
+            <div className='bar_hamburger--hidden'></div>
+            <Bar {...barProps} style={{ width: 30, height: 3 }} />
+        </Flex>
+    )
+}
 
 Hamburger.propTypes = {
     style: PropTypes.object.isRequired,

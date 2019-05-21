@@ -10,15 +10,36 @@ import Flex from './../../atoms/Flex'
 
 const AnimatedNavLink = animated(NavLink)
 
-const NavLinks = ({ links, cssNav, mobileMenu, style, trail, onClick }) => {
+const NavLinks = (props) => {
+
+    const { links, cssNav, mobileMenu, style, trail, onClick } = props
+
+    const navLinkProps = {
+        activeClassName: `NavLink--active`
+    }
+
+    const navListProps = {
+        className: `${mobileMenu ? null : 'NavList'}`,
+        as: `ul`,
+        reset: mobileMenu ? true : false,
+        displayNone: mobileMenu ? false : true,
+        style
+    }
+
+    const animatedNavLinkProps = {
+        onClick: () => onClick('close'),
+        mobile: mobileMenu,
+        activeClassName: `NavLink--active`
+    }
+
     const navLinks = links.map((link, i) => 
-        <NavLink key={shortid.generate()} to={i === 0 ? '/' : `/${link.toLowerCase().replace(/\s+/g, '-')}`} activeClassName='NavLink--active'>{link}</NavLink>
+        <NavLink {...navLinkProps} key={ shortid.generate() } to={i === 0 ? '/' : `/${link.toLowerCase().replace(/\s+/g, '-')}`}>{link}</NavLink>
     )
 
     return (
-        <Flex as='ul' reset css={cssNav} style={style}>
+        <Flex {...navListProps} css={cssNav}>
             {mobileMenu ? trail.map(({ x, height, ...rest }, index) => 
-                <AnimatedNavLink onClick={onClick} mobile={mobileMenu} key={links[index]} to={index === 0 ? '/' : `/${links[index].toLowerCase().replace(/\s+/g, '-')}`} activeClassName='NavLink--active' style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>{links[index]}</AnimatedNavLink>
+                <AnimatedNavLink {...animatedNavLinkProps} key={links[index]} to={index === 0 ? '/' : `/${links[index].toLowerCase().replace(/\s+/g, '-')}`} style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>{links[index]}</AnimatedNavLink>
             ) : navLinks}
         </Flex>
     )

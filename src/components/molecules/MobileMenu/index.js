@@ -7,21 +7,23 @@ import { useChain, useSpring, useTrail, animated } from 'react-spring'
 
 // COMPONENTS
 import NavLinks from './../NavLinks'
-import Portal from './../Portal'
 import Flex from './../../atoms/Flex'
+import CloseBtn from './../../../images/close_btn.svg'
 
 const AnimatedFlex = animated(Flex)
 
-const MobileMenu = ({ links, status, onClick }) => {
+const MobileMenu = (props) => {
+
+    const { links, status, onClick } = props
 
     const overlayRef = useRef()
-    const sidebarRef = useRef()
-    const trailRef = useRef()
-
     const overlayStyles = useSpring({ opacity: status ? 1 : 0, ref: overlayRef })
-    const sidebarStyles = useSpring({ x: status ? 0 : 100, ref: sidebarRef })
-    const config = { mass: 5, tension: 2000, friction: 200 }
 
+    const sidebarRef = useRef()
+    const sidebarStyles = useSpring({ x: status ? 0 : 100, ref: sidebarRef })
+
+    const trailRef = useRef()
+    const config = { mass: 5, tension: 2000, friction: 200 }
     const trail = useTrail(links.length, {
         config,
         opacity: status ? 1 : 0,
@@ -30,14 +32,44 @@ const MobileMenu = ({ links, status, onClick }) => {
         from: { opacity: 0, x: 20 },
     })
 
-    useChain(status ? [overlayRef, sidebarRef, trailRef] : [trailRef, sidebarRef, overlayRef], [0, 0.2, 0.5])
+    useChain(status ? [overlayRef, sidebarRef, trailRef] : [trailRef, sidebarRef, overlayRef], 
+            status ? [0, 0.2, 0.3] : [0, 0.4, 0.2])
+
+    const overlayProps = {
+        id: `overlay_mobileMenu`,
+        reset: true,
+        onClick: () => onClick('close'),
+        style: { ...overlayStyles, 
+                visibility: overlayStyles.opacity.interpolate(o => o === 0 ? 'hidden' : 'visible') }
+    }
+
+    const containerProps = {
+        id: `container_mobileMenu`,
+        reset: true,
+        style: { top: 0, right: 0, zIndex: 1001, overflow: 'auto', 
+                ...sidebarStyles, transform: sidebarStyles.x.interpolate(x => `translate3d(${x}%,0,0)`) }
+    }
+
+    const navLinksProps = {
+        trail,
+        onClick,
+        links,
+        mobileMenu: 'mobile',
+        style: { minHeight: 400, maxHeight: 600 }
+    }
+
+    const closeBtnProps = {
+        onClick: () => onClick('close'),
+        style: { position: 'absolute', top: '2.5rem', right: '2rem', height: 30, cursor: 'pointer' }
+    }
 
     return (
         <Fragment>
             <RemoveScrollBar />
-            <AnimatedFlex id='overlay_mobileMenu' reset onClick={onClick} style={{ ...overlayStyles, visibility: overlayStyles.opacity.interpolate(o => o === 0 ? 'hidden' : 'visible') }} />
-            <AnimatedFlex reset css={tw`fixed w-4/5 max-w-xs h-full bg-white`} style={{ ...{ top: 0, right: 0, zIndex: 1001, overflow: 'auto' }, ...sidebarStyles, transform: sidebarStyles.x.interpolate(x => `translate3d(${x}%,0,0)`) }}>
-                <NavLinks trail={trail} onClick={onClick} links={links} cssNav={tw`flex-col justify-center items-center w-full h-full p-4`} mobileMenu='mobile' style={{ minHeight: 400, maxHeight: 600 }} />
+            <AnimatedFlex {...overlayProps} />
+            <AnimatedFlex {...containerProps} css={tw`fixed w-4/5 max-w-xs h-full bg-white`}>
+                <CloseBtn {...closeBtnProps} />
+                <NavLinks {...navLinksProps} cssNav={tw`flex-col justify-center items-center w-full h-full p-4`} />
             </AnimatedFlex>
         </Fragment>
     )

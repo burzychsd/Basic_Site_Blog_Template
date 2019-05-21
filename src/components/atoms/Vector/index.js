@@ -7,8 +7,15 @@ export const Img = styled.img`
     ${props => props.reset ? null : tw`w-full h-auto`};
 `
 
-const Vector = ({ css, src, alt, style }) => (
-    <Img css={css} src={src} alt={alt} style={style} />
-)
+const Vector = (props) => {
+
+    const { css, src, alt, style } = props
+
+    const imgProps = { src, alt, style }
+
+    return (
+        <Img css={css} {...imgProps} />
+    )
+}
 
 export default Vector
