@@ -16,7 +16,7 @@ const Navigation = ({ links, mobile, height, onClickHamburger, onClickLogo, logo
         {
             mobile ? 
             <Hamburger style={{ width: 'auto', height: 20, cursor: 'pointer', justifyContent: 'space-between', background: 'transparent' }} onClick={onClickHamburger} /> : 
-            <NavLinks links={links} css={tw`list-none`} />
+            <NavLinks links={links} cssNav={tw`list-none`} />
         }
     </Flex>
 )

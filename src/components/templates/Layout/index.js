@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 
 // COMPONENTS
 import Header from './../../organisms/Header'
-import MobileMenu from './../../molecules/MobileMenu'
 
 // STYLES
 import './Layout.css'
@@ -13,7 +12,7 @@ import './Layout.css'
 // ACTIONS
 import { setDimensions } from './actions'
 
-const Layout = ({ children, setDimensions, width, mobileMenu }) => {
+const Layout = ({ children, setDimensions, width }) => {
 
   useEffect(() => {
     setDimensions()
@@ -29,7 +28,6 @@ const Layout = ({ children, setDimensions, width, mobileMenu }) => {
       position: 'relative'
     }}>
       <Header height={64} width={width} />
-      {width <= 500 && <MobileMenu status={mobileMenu} />}
       <main style={{ paddingTop: 'calc(64px + 1.5rem)' }}>{children}</main>
       <footer></footer>
     </div>
@@ -41,8 +39,7 @@ Layout.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  width: state.dimensions.width,
-  mobileMenu: state.mobileMenu.mobileMenuStatus
+  width: state.dimensions.width
 })
 
 export default connect(mapStateToProps, { setDimensions })(Layout)
