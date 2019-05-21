@@ -7,6 +7,10 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+body {
+    min-width: 100%;
+}
+
 #overlay_mobileMenu {
     position: fixed;
     width: 100%;
