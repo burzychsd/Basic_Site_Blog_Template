@@ -19,7 +19,7 @@ const NavLinks = (props) => {
     }
 
     const navListProps = {
-        className: `${mobileMenu ? null : 'NavList'}`,
+        className: `${mobileMenu ? 'NavList_mobileMenu' : 'NavList'}`,
         as: `ul`,
         reset: mobileMenu ? true : false,
         displayNone: mobileMenu ? false : true,

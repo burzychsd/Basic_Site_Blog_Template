@@ -32,7 +32,8 @@ const MobileMenu = (props) => {
         from: { opacity: 0, x: 20 },
     })
 
-    useChain(status ? [overlayRef, sidebarRef, trailRef] : [trailRef, sidebarRef, overlayRef], 
+    useChain(status ? [overlayRef, sidebarRef, trailRef] : 
+            [trailRef, sidebarRef, overlayRef], 
             status ? [0, 0.2, 0.3] : [0, 0.4, 0.2])
 
     const overlayProps = {
@@ -59,6 +60,7 @@ const MobileMenu = (props) => {
     }
 
     const closeBtnProps = {
+        className: status ? `close_btn close_btn--active` : 'close_btn',
         onClick: () => onClick('close'),
         style: { position: 'absolute', top: '2.5rem', right: '2rem', height: 30, cursor: 'pointer' }
     }
@@ -69,7 +71,7 @@ const MobileMenu = (props) => {
             <AnimatedFlex {...overlayProps} />
             <AnimatedFlex {...containerProps} css={tw`fixed w-4/5 max-w-xs h-full bg-white`}>
                 <CloseBtn {...closeBtnProps} />
-                <NavLinks {...navLinksProps} cssNav={tw`flex-col justify-center items-center w-full h-full p-4`} />
+                <NavLinks {...navLinksProps} cssNav={tw`flex-col justify-center items-center w-full h-full py-4`} />
             </AnimatedFlex>
         </Fragment>
     )
