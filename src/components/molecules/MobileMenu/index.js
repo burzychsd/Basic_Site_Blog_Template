@@ -67,7 +67,7 @@ const MobileMenu = (props) => {
 
     return (
         <Fragment>
-            <RemoveScrollBar />
+            {status && <RemoveScrollBar />}
             <AnimatedFlex {...overlayProps} />
             <AnimatedFlex {...containerProps} css={tw`fixed w-4/5 max-w-xs h-full bg-white`}>
                 <CloseBtn {...closeBtnProps} />

@@ -235,3 +235,22 @@ main {
         display: none;
     }
 }
+
+/* INFO CARD */
+
+.info_card {
+    width: 100%;
+    height: 130.19px;
+    margin-bottom: 1rem;
+}
+
+div > .info_card:last-child {
+    margin-bottom: 0;
+}
+
+@media only screen and (min-width: 576px) {
+    .info_card {
+        width: 32%;
+        height: 200px;
+    }
+}

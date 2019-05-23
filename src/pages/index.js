@@ -1,12 +1,16 @@
 // DEPENDENCIES
-import React from 'react'
+import React, { Fragment } from 'react'
 import tw from 'tailwind.macro'
 
 // COMPONENTS
 import SEO from '../components/templates/SEO'
+import HomeAboveTheFold from '../components/organisms/HomeAboveTheFold'
 
 const IndexPage = () => (
-    <SEO title="Home" keywords={[`website`, `personal`, `blog`]} />
+    <Fragment>
+        <SEO title="Home" keywords={[`website`, `personal`, `blog`]} />
+        <HomeAboveTheFold />
+    </Fragment>
 )
 
 export default IndexPage

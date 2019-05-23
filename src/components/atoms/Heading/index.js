@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Heading = styled.h1`
-    ${props => props.reset ? null : tw`font-heading text-3xl`};
+    ${props => props.reset ? null : tw`font-heading text-3xl text-black leading-normal mx-4`};
 `
 
 export default Heading
