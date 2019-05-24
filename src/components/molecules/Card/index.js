@@ -7,21 +7,20 @@ import Flex from './../../atoms/Flex'
 
 const Card = (props) => {
 
-    const { className, css, children } = props
+    const { className, cardCss, children } = props
 
     const cardProps = {
-        className,
-        css
+        className
     }
 
     return (
-        <Flex {...cardProps}>{children}</Flex>
+        <Flex {...cardProps} reset css={cardCss}>{children}</Flex>
     )
 }
 
 Card.propTypes = {
     className: PropTypes.string.isRequired,
-    css: PropTypes.object.isRequired,
+    cardCss: PropTypes.object.isRequired,
     children: PropTypes.node
 }
 

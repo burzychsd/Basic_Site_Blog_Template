@@ -22,8 +22,8 @@ const Title = (props) => {
     }
 
     return (
-        <Flex css={containerCss}>
-            <Heading css={headingCss}>
+        <Flex {...containerProps} css={containerCss}>
+            <Heading {...headingProps} css={headingCss}>
                 {children}
             </Heading>
         </Flex>

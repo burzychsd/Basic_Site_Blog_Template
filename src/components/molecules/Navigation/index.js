@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 // COMPONENTS
 import Flex from '../../atoms/Flex'
 import Hamburger from '../Hamburger'
-import Logo from './../../../images/logo.svg'
+import Logo from './../../../images/svg/logo.svg'
 import NavLinks from './../NavLinks'
 import DelayLink from './../../atoms/DelayLink'
 

@@ -8,7 +8,7 @@ import { useChain, useSpring, useTrail, animated } from 'react-spring'
 // COMPONENTS
 import NavLinks from './../NavLinks'
 import Flex from './../../atoms/Flex'
-import CloseBtn from './../../../images/close_btn.svg'
+import CloseBtn from './../../../images/svg/close_btn.svg'
 
 const AnimatedFlex = animated(Flex)
 
