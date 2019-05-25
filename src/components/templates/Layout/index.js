@@ -1,19 +1,22 @@
 // DEPENDENCIES
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
 import Header from './../../organisms/Header'
+import Footer from './../../organisms/Footer'
 
 // STYLES
 import './Layout.css'
 
 const Layout = ({ children }) =>  (
-  <div id='site_wrapper'>
-    <Header height={64} />
-    <main>{children}</main>
-    <footer></footer>
-  </div>
+  <Fragment>
+    <div id='site_wrapper'>
+      <Header height={64} />
+      <main style={{ flex: '1 0 auto', minHeight: '100vh' }}>{children}</main>
+    </div>
+    <Footer></Footer>
+  </Fragment>
 )
 
 Layout.propTypes = {
