@@ -3,15 +3,21 @@ import React from 'react'
 import tw from 'tailwind.macro'
 
 // COMPONENTS
-import Section from './../../atoms/Section'
-import Flex from './../../atoms/Flex'
+import Section from './../../molecules/Section'
 
-const HomeDescription = () => (
-    <Section reset css={tw`w-full px-6 pb-6`}>
-        <Flex css={tw`rounded-lg`} style={{ height: 400 }}>
+const HomeDescription = () => {
 
-        </Flex>
-    </Section>
-)
+    const sectionProps = {
+        sectionReset: true,
+        container: true,
+        height: 400
+    }
+
+    return (
+        <Section {...sectionProps} sectionCss={tw`w-full px-6 pb-6`} containerCss={tw`rounded-lg`}>
+
+        </Section>
+    )
+}
 
 export default HomeDescription

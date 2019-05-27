@@ -13,7 +13,7 @@ const Layout = ({ children }) =>  (
   <Fragment>
     <div id='site_wrapper'>
       <Header height={64} />
-      <main style={{ flex: '1 0 auto', minHeight: '100vh' }}>{children}</main>
+      <main>{children}</main>
     </div>
     <Footer></Footer>
   </Fragment>
