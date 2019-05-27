@@ -32,10 +32,10 @@ const Section = (props) => {
 }
 
 Section.propTypes = {
-    height: PropTypes.number.isRequired,
+    height: PropTypes.number,
     sectionCss: PropTypes.object,
     sectionReset: PropTypes.bool,
-    container: PropTypes.bool.isRequired,
+    container: PropTypes.bool,
     containerCss: PropTypes.object,
     containerReset: PropTypes.bool
 }

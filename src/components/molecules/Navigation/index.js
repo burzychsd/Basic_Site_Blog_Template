@@ -39,14 +39,15 @@ const Navigation = (props) => {
     }
 
     const navLinksProps = {
-        links
+        links,
+        cssNav: { ...tw`list-none` }
     }
 
     return (
         <Flex {...navigationProps} css={tw`w-full px-6 items-center justify-between`} >
             <DelayLink {...delayLinkProps}><Logo {...logoProps} /></DelayLink>
             <Hamburger {...hamburgerProps} /> 
-            <NavLinks {...navLinksProps} cssNav={tw`list-none`} />
+            <NavLinks {...navLinksProps} />
         </Flex>
     )
 }

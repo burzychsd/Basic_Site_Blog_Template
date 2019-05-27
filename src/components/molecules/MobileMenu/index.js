@@ -56,7 +56,8 @@ const MobileMenu = (props) => {
         onClick,
         links,
         mobileMenu: 'mobile',
-        style: { minHeight: 400, maxHeight: 600 }
+        style: { minHeight: 400, maxHeight: 600 },
+        cssNav: { ...tw`flex-col justify-center items-center w-full h-full py-4` }
     }
 
     const closeBtnProps = {
@@ -71,7 +72,7 @@ const MobileMenu = (props) => {
             <AnimatedFlex {...overlayProps} />
             <AnimatedFlex {...containerProps} css={tw`fixed w-4/5 max-w-xs h-full bg-white`}>
                 <CloseBtn {...closeBtnProps} />
-                <NavLinks {...navLinksProps} cssNav={tw`flex-col justify-center items-center w-full h-full py-4`} />
+                <NavLinks {...navLinksProps} />
             </AnimatedFlex>
         </Fragment>
     )

@@ -4,8 +4,8 @@ import LazyLoad from 'react-lazy-load'
 import tw from 'tailwind.macro'
 
 // COMPONENTS
-import { Img } from './../Vector'
-import Flex from './../Flex'
+import { Img } from '../../atoms/Vector'
+import Flex from '../../atoms/Flex'
 
 const _loaded = {}
 

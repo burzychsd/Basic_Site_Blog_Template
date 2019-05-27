@@ -8,6 +8,10 @@
     outline: none;
 }
 
+html {
+    min-width: 280px;
+}
+
 body {
     min-width: 100%;
     display: flex;
@@ -260,4 +264,30 @@ div > .info_card:last-child {
     }
 }
 
-/* HOME DESCRIPTION */
+/* BLOG CARD */
+
+.blog_card {
+    width: 100%;
+    min-height: 200px;
+    margin-bottom: 1.5rem;
+}
+
+div > .blog_card:last-child {
+    margin-bottom: 0;
+}
+
+/* BLOG LIST & ASIDE CONTAINER */
+
+.blog_list {
+    width: 60%;
+}
+
+@media only screen and (max-width: 650px) {
+    .blog_list {
+        width: 100%;
+    }
+
+    .aside_container {
+        display: none;
+    }
+}

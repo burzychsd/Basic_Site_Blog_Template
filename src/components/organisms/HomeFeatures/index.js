@@ -9,12 +9,14 @@ const HomeFeatures = () => {
 
     const sectionProps = {
         sectionReset: true,
+        sectionCss: { ...tw`w-full px-6 pb-6` },
         container: true,
+        containerCss: { ...tw`rounded-lg` },
         height: 400
     }
 
     return (
-        <Section {...sectionProps} sectionCss={tw`w-full px-6 pb-6`} containerCss={tw`rounded-lg`}>
+        <Section {...sectionProps}>
 
         </Section>
     )

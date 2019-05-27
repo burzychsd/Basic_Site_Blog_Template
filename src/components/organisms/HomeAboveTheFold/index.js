@@ -12,28 +12,31 @@ const HomeAboveTheFold = () => {
 
     const sectionProps = {
         sectionReset: true,
+        sectionCss: { ...tw`w-full flex flex-col p-6` },
         container: false
     }
 
     const titleProps = {
-        containerReset: true
+        containerReset: true,
+        containerCss: { ...tw`rounded-lg justify-center` }
     }
 
     const cardProps = {
-        className: `info_card`
+        className: `info_card`,
+        cardCss: { ...tw`flex flex-col items-center bg-grey-lighter rounded-lg` }
     }
 
     return (
-        <Section {...sectionProps} sectionCss={tw`w-full flex flex-col p-6`}>
-            <Title {...titleProps} containerCss={tw`rounded-lg justify-center`}>
+        <Section {...sectionProps}>
+            <Title {...titleProps}>
                 Basic Site
                 <span style={{ color: '#9EE493', margin: '0 0.25em' }}>/</span>
                 Blog Template.
             </Title>
             <Flex reset css={tw`mt-4 justify-between flex-wrap`}>
-                <Card {...cardProps} cardCss={tw`flex flex-col items-center bg-grey-lighter rounded-lg`} />
-                <Card {...cardProps} cardCss={tw`flex flex-col items-center bg-grey-lighter rounded-lg`} />
-                <Card {...cardProps} cardCss={tw`flex flex-col items-center bg-grey-lighter rounded-lg`} />
+                <Card {...cardProps} />
+                <Card {...cardProps} />
+                <Card {...cardProps} />
             </Flex>
         </Section>
     )
