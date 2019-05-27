@@ -32,19 +32,36 @@ const BlogList = (props) => {
 
     const asideProps = {
         className: `aside_container`,
-        style: { width: 'calc(40% - 1.5rem)' },
+        style: { width: 'calc(35% - 1rem)' },
         as: `aside`,
         reset: true
     }
 
     const cardProps = {
         className: `blog_card`,
-        cardCss: { ...tw`flex flex-col items-center bg-black rounded-lg` }
+        cardCss: { ...tw`flex flex-col items-center rounded-lg` }
     }
 
-    const blogCards = posts.map((blog, i) => 
-        <Card key={shortid.generate()} {...cardProps}>
+    const lazyLoaderProps = {
+        src: `https://carepharmaceuticals.com.au/wp-content/uploads/sites/19/2018/02/placeholder-600x400.png`,
+        alt: `placeholder`,
+        containerClassName: `blog_pic_container`,
+        className: `blog_pic`,
+        loadedClassName: `img-loaded`,
+        loadingClassName: `img-loading`
+    }
 
+    const blogCards = posts.reverse().map((blog, i) => 
+        <Card key={shortid.generate()} {...cardProps}>
+            <Flex reset css={tw`w-full h-full`}>
+                <LazyLoader {...lazyLoaderProps} />
+                <Flex className='blog_info' reset css={tw`flex-col bg-white h-full`}>
+                    <Text as='h2' reset css={tw`m-0 font-heading text-2xl text-black mb-4`}>{blog}</Text>
+                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Curabitur venenatis eros auctor magna condimentum ornare. 
+                    Pellentesque habitant morbi tristique.</Text>
+                </Flex>
+            </Flex>
         </Card>
     )
 

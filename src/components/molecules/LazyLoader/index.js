@@ -11,7 +11,7 @@ const _loaded = {}
 
 const LazyLoader = (props) => {
 
-    const { src, alt, style, loadedClassName, loadingClassName, onClick } = props
+    const { src, alt, style, containerClassName, loadedClassName, loadingClassName, onClick } = props
 
     const [ loaded, setLoaded ] = useState(_loaded[src])
 
@@ -32,8 +32,8 @@ const LazyLoader = (props) => {
     }
 
     return (
-        <Flex reset css={tw`bg-grey-lighter`}>
-            <LazyLoad>
+        <Flex className={containerClassName} reset css={tw`bg-grey-lighter`}>
+            <LazyLoad once height='100%'>
                 <Img {...imgProps} />
             </LazyLoad>
         </Flex>
