@@ -292,13 +292,13 @@ div > .blog_card:last-child {
     width: 65%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .blog_list {
         width: 100%;
     }
 
     .aside_container {
-        display: none;
+        display: none!important;
     }
 }
 
@@ -307,7 +307,6 @@ div > .blog_card:last-child {
 .blog_pic_container, .blog_pic, .blog_info {
     width: 100%;
     height: auto;
-    min-height: 200px;
 }
 
 .blog_pic_container > div > img {
