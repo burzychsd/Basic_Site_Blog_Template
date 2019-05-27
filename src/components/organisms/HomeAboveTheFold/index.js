@@ -12,7 +12,7 @@ const HomeAboveTheFold = () => {
 
     const sectionProps = {
         sectionReset: true,
-        sectionCss: { ...tw`w-full flex flex-col p-6` },
+        sectionCss: { ...tw`w-full flex flex-col px-4 sm:px-6 py-6` },
         container: false
     }
 
