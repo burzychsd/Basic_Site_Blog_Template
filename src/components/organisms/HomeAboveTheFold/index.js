@@ -24,7 +24,7 @@ const HomeAboveTheFold = () => {
     }
 
     return (
-        <Section {...sectionProps} sectionCss={tw`w-full flex flex-col p-6`}>
+        <Section {...sectionProps} sectionCss={tw`w-full flex flex-col px-6 pb-6`}>
             <Title {...titleProps} containerCss={tw`rounded-lg justify-center`}>
                 Basic Site
                 <span style={{ color: '#9EE493', margin: '0 0.25em' }}>/</span>
