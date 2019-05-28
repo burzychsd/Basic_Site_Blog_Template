@@ -8,7 +8,6 @@ import shortid from 'shortid'
 import Section from './../../molecules/Section'
 import Card from './../../molecules/Card'
 import LazyLoader from './../../molecules/LazyLoader'
-import Title from './../../molecules/Title'
 import Text from './../../atoms/Text'
 import Button from './../../atoms/Button'
 import Flex from './../../atoms/Flex'
@@ -60,6 +59,13 @@ const BlogList = (props) => {
                     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Curabitur venenatis eros auctor magna condimentum ornare. 
                     Pellentesque habitant morbi tristique.</Text>
+                    <Button reset 
+                    css={
+                    tw` w-2/3 border-none 
+                    cursor-pointer 
+                    font-bold py-2 
+                    px-4  mt-4 rounded 
+                    text-white font-body bg-black hover:bg-blue-light self-end`} style={{ maxWidth: 120 }}>Read More</Button>
                 </Flex>
             </Flex>
         </Card>

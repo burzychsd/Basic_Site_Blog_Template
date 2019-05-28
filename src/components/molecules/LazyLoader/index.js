@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import LazyLoad from 'react-lazy-load'
 import tw from 'tailwind.macro'
+import PropTypes from 'prop-types'
 
 // COMPONENTS
 import { Img } from '../../atoms/Vector'
@@ -32,13 +33,23 @@ const LazyLoader = (props) => {
     }
 
     return (
-        <Flex className={containerClassName} reset css={tw`bg-grey-lighter`}>
+        <Flex className={containerClassName} reset>
             <LazyLoad once height='100%'>
                 <Img {...imgProps} />
             </LazyLoad>
         </Flex>
     )
 
+}
+
+LazyLoader.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    style: PropTypes.object,
+    containerClassName: PropTypes.string,
+    loadedClassName: PropTypes.string,
+    loadingClassName: PropTypes.string,
+    onClick: PropTypes.func
 }
 
 export default LazyLoader

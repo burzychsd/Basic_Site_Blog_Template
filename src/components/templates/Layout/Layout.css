@@ -292,6 +292,11 @@ div > .blog_card:last-child {
     width: 65%;
 }
 
+.aside_container {
+    border-bottom-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+}
+
 @media only screen and (max-width: 500px) {
     .blog_list {
         width: 100%;
