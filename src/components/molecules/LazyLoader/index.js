@@ -13,10 +13,7 @@ const LazyLoader = (props) => {
 
     const { src, alt, style, onClick, className, onLoad, loaded } = props
 
-    const img = useSpring({
-        to: { opacity: loaded ? 1 : 0, y: loaded ? 0 : 40 },
-        from: { opacity: 0, y: 40 }
-    })
+    const img = useSpring({ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20, config: { mass: 1, tension: 280, friction: 20 } })
 
     const imgProps = {
         src,

@@ -19,7 +19,7 @@ const Layout = ({ children }) => (
         <Header height={64} />
         <Transition
         native
-        config={{ mass: 20, tension: 355, friction: 80, duration: 400 }}
+        config={{ mass: 1, tension: 60, friction: 20 }}
         keys={location.pathname}
         from={{ opacity: 0 }}
         enter={{ opacity: 1 }}
