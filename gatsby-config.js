@@ -6,6 +6,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-polyfill-io`,
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        showSpinner: false,
+        trickle: false,
+        minimum: 0.4,
+        color: `green`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-layout`,

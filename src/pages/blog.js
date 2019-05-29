@@ -7,11 +7,14 @@ import SEO from '../components/templates/SEO'
 import BlogAboveTheFold from '../components/organisms/BlogAboveTheFold'
 import BlogList from '../components/organisms/BlogList'
 
+// DATA
+import { posts } from './../dummy_data/posts'
+
 const BlogPage = () => (
     <Fragment>
         <SEO title="Blog" keywords={[`website`, `personal`, `blog`]} />
         <BlogAboveTheFold />
-        <BlogList posts={['First post', 'Second Post', 'Third Post', 'Fourth Post', 'Fifth Post']} />
+        <BlogList posts={posts} />
     </Fragment>
 )
 

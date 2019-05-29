@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 // COMPONENTS
 import Flex from './../../atoms/Flex'
-import Heading from './../../atoms/Heading'
+import { H1 as Heading } from './../../atoms/Heading'
 
 const Title = (props) => {
 

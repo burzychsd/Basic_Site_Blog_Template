@@ -1,43 +1,36 @@
 // DEPENDENCIES
-import React, { useState } from 'react'
+import React from 'react'
 import LazyLoad from 'react-lazy-load'
-import tw from 'tailwind.macro'
+import { useSpring, animated } from 'react-spring'
 import PropTypes from 'prop-types'
 
 // COMPONENTS
 import { Img } from '../../atoms/Vector'
-import Flex from '../../atoms/Flex'
 
-const _loaded = {}
+const AnimatedImg = animated(Img)
 
 const LazyLoader = (props) => {
 
-    const { src, alt, style, containerClassName, loadedClassName, loadingClassName, onClick } = props
+    const { src, alt, style, onClick, className, onLoad, loaded } = props
 
-    const [ loaded, setLoaded ] = useState(_loaded[src])
-
-    const onLoad = () => {
-        _loaded[src] = true
-        setLoaded(true)
-    }
-
-    const className = `${loaded ? loadedClassName : loadingClassName}`
+    const img = useSpring({
+        to: { opacity: loaded ? 1 : 0, y: loaded ? 0 : 40 },
+        from: { opacity: 0, y: 40 }
+    })
 
     const imgProps = {
         src,
         alt,
-        className,
         onLoad,
         onClick,
-        style
+        style: { ...style, opacity: img.opacity, 
+                 transform: img.y.interpolate(y => `translateY(${y}%)`)}
     }
 
     return (
-        <Flex className={containerClassName} reset>
-            <LazyLoad once height='100%'>
-                <Img {...imgProps} />
-            </LazyLoad>
-        </Flex>
+        <LazyLoad className={className} once height='100%' offsetTop={100} debounce={false}>
+            <AnimatedImg {...imgProps} />
+        </LazyLoad>
     )
 
 }
@@ -49,7 +42,9 @@ LazyLoader.propTypes = {
     containerClassName: PropTypes.string,
     loadedClassName: PropTypes.string,
     loadingClassName: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    onLoad: PropTypes.func.isRequired,
+    loaded: PropTypes.bool.isRequired
 }
 
 export default LazyLoader
