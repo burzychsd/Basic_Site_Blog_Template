@@ -98,7 +98,7 @@ main {
     position: relative;
     opacity: 0;
     animation-fill-mode: forwards;
-    animation-duration: 0.7s;
+    animation-duration: 0.4s;
     animation-delay: 0.1s;
 }
 
