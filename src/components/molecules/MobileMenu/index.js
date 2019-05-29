@@ -23,7 +23,7 @@ const MobileMenu = (props) => {
     const sidebarStyles = useSpring({ x: status ? 0 : 100, ref: sidebarRef })
 
     const trailRef = useRef()
-    const config = { mass: 5, tension: 2000, friction: 200 }
+    const config = { mass: 20, tension: 2000, friction: 800, duration: 600 }
     const trail = useTrail(links.length, {
         config,
         opacity: status ? 1 : 0,
