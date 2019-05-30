@@ -78,9 +78,10 @@ const BlogList = (props) => {
             <Flex {...blogListProps} css={tw`flex-col justify-between`}>
                 {blogCards}
                 <Flex reset css={tw` flex-wrap justify-center`}>
-                    <Button css={tw`mx-1`} onClick={e => navigate('/blog')}>First</Button>
+                    {location.pathname !== '/blog' && 
+                    <Button css={tw`mx-1`} onClick={e => navigate('/blog')}>First</Button>}
                     {pagination}
-                    <Button css={tw`mx-1`} onClick={e => navigate(`/blog/page/${numberOfPages}`)}>Last</Button>
+                    {location.pathname !== `/blog/page/${numberOfPages}` && <Button css={tw`mx-1`} onClick={e => navigate(`/blog/page/${numberOfPages}`)}>Last</Button>}
                 </Flex>
             </Flex>
             <Flex {...asideProps} css={tw`flex-col justify-between bg-white rounded-lg`}>
