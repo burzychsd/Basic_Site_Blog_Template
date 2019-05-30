@@ -53,6 +53,10 @@ const BlogCard = (props) => {
         loaded
     }
 
+    const buttonProps = {
+        style: { maxWidth: 120, ...buttonAnimation }
+    }
+
     return (
         <Card {...cardProps}>
             <Flex reset css={tw`w-full h-full`}>
@@ -67,7 +71,7 @@ const BlogCard = (props) => {
                 font-bold py-2 
                 px-4  mt-4 rounded 
                 text-white font-body bg-black hover:bg-blue-light self-end`}
-                style={{ maxWidth: 120 }} style={buttonAnimation}>Read More</AnimatedButton>
+                {...buttonProps}>Read More</AnimatedButton>
                 </Flex>
             </Flex>
         </Card>
