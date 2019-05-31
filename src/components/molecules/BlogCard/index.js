@@ -1,8 +1,9 @@
 // DEPENDENCIES
-import React, { useState, useRef } from 'react'
+import React, { Fragment, useState, useRef } from 'react'
 import { useSpring, useChain, animated } from 'react-spring'
 import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
+import { navigate } from 'gatsby'
 
 // COMPONENTS
 import Card from './../Card'
@@ -18,10 +19,9 @@ const AnimatedButton = animated(Button)
 
 const BlogCard = (props) => {
 
-    const { description, src, alt, title } = props
+    const { description, src, alt, title, slug } = props
 
     const [ loaded, setLoaded ] = useState(false)
-
     const onLoad = () => setLoaded(true)
 
     const config = { mass: 1, tension: 280, friction: 20 }
@@ -54,27 +54,30 @@ const BlogCard = (props) => {
     }
 
     const buttonProps = {
-        style: { maxWidth: 120, ...buttonAnimation }
+        style: { maxWidth: 120, ...buttonAnimation },
+        onClick: () => navigate(slug)
     }
 
     return (
-        <Card {...cardProps}>
-            <Flex reset css={tw`w-full h-full`}>
-                <LazyLoader {...lazyLoaderProps} />
-                <Flex className='blog_info' reset css={tw`flex-col bg-white h-full`}>
-                <AnimatedHeading reset css={tw`m-0 font-heading text-2xl text-black mb-4`} style={titleAnimation}>{title}</AnimatedHeading>
-                <AnimatedText style={descriptionAnimation}>{description}</AnimatedText>
-                <AnimatedButton reset 
-                css={
-                tw` w-2/3 border-none 
-                cursor-pointer 
-                font-bold py-2 
-                px-4  mt-4 rounded 
-                text-white font-body bg-black hover:bg-blue-light self-end`}
-                {...buttonProps}>Read More</AnimatedButton>
+        <Fragment>
+            <Card {...cardProps}>
+                <Flex reset css={tw`w-full h-full`}>
+                    <LazyLoader {...lazyLoaderProps} />
+                    <Flex className='blog_info' reset css={tw`flex-col bg-white h-full`}>
+                    <AnimatedHeading reset css={tw`m-0 font-heading text-2xl text-black mb-4`} style={titleAnimation}>{title}</AnimatedHeading>
+                    <AnimatedText style={descriptionAnimation}>{description}</AnimatedText>
+                    <AnimatedButton reset 
+                    css={
+                    tw` w-2/3 border-none 
+                    cursor-pointer 
+                    font-bold py-2 
+                    px-4  mt-4 rounded 
+                    text-white font-body bg-black hover:bg-blue-light self-end`}
+                    {...buttonProps}>Read More</AnimatedButton>
+                    </Flex>
                 </Flex>
-            </Flex>
-        </Card>
+            </Card>
+        </Fragment>
     )
 }
 

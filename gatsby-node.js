@@ -19,12 +19,20 @@ exports.createPages = ({ actions, graphql }) => {
                     node {
                         title
                         shortText
-                            image {
-                                file {
-                                url,
+                        image {
+                            file {
+                                url
                                 fileName
                             }
                         }
+                        author {
+                        authorName
+                        }
+                        slug
+                        content {
+                        content
+                        }
+                        createdAt(locale: "")
                     }
                 }
             }
@@ -46,6 +54,22 @@ exports.createPages = ({ actions, graphql }) => {
             pathPrefix: ({ pageNumber, numberOfPages }) =>
             pageNumber === 0 ? '/blog' : '/blog/page', // Creates pages like `/blog`, `/blog/2`, etc
             component: path.resolve('./src/components/templates/Blog/index.js'), // Just like `createPage()`
+        })
+
+        blogPosts.forEach(edge => {
+            createPage({
+                path: `${edge.node.slug}`,
+                component: path.resolve('./src/components/templates/BlogPost/index.js'),
+                context: {
+                    slug: edge.node.slug,
+                    title: edge.node.title,
+                    src: edge.node.image.file.url,
+                    alt: edge.node.image.file.fileName,
+                    author: edge.node.author.authorName,
+                    date: edge.node.createdAt,
+                    content: edge.node.content.content
+                }
+            })
         })
     })
 }

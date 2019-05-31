@@ -1,24 +1,19 @@
 // DEPENDENCIES
-import React, { useEffect, Fragment } from 'react'
+import React, { Fragment } from 'react'
+import { RemoveScrollBar } from 'react-remove-scroll-bar'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
 const portalRoot = typeof document !== `undefined` ? document.getElementById('portal') : null
 
 const Portal = ({ children }) => {
-    let el = typeof document !== `undefined` ? document.createElement('div') : null
 
-    useEffect(() => {
-        portalRoot.appendChild(el)
-
-        return () => { portalRoot.removeChild(el) }
-    }, [])
-
-    if (el) {
+    if (portalRoot) {
         return ReactDOM.createPortal(
             <Fragment>
+                <RemoveScrollBar />
                 {children}
-            </Fragment>, el 
+            </Fragment>, portalRoot 
         )
     } else {
         return null

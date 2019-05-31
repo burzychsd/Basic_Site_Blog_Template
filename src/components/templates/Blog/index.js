@@ -1,6 +1,6 @@
 // DEPENDENCIES
 import React, { Fragment } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Location } from '@reach/router'
 
 // COMPONENTS
@@ -36,6 +36,7 @@ query($skip: Int!, $limit: Int!) {
     posts: allContentfulPost(sort: {order: DESC, fields: createdAt}, skip: $skip, limit: $limit) {
         edges {
           node {
+            slug
             title
             shortText
             image {

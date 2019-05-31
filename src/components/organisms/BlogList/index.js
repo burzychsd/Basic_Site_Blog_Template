@@ -41,7 +41,8 @@ const BlogList = (props) => {
         title={post.node.title} 
         description={post.node.shortText}
         src={post.node.image.file.url}
-        alt={post.node.image.file.fileName} />
+        alt={post.node.image.file.fileName}
+        slug={post.node.slug} />
     )
 
     const range = (start, stop, step) => {
