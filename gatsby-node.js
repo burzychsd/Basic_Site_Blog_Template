@@ -30,7 +30,9 @@ exports.createPages = ({ actions, graphql }) => {
                         }
                         slug
                         content {
-                        content
+                            childMarkdownRemark {
+                                html
+                            }
                         }
                         createdAt(locale: "")
                     }
@@ -67,7 +69,7 @@ exports.createPages = ({ actions, graphql }) => {
                     alt: edge.node.image.file.fileName,
                     author: edge.node.author.authorName,
                     date: edge.node.createdAt,
-                    content: edge.node.content.content
+                    content: edge.node.content.childMarkdownRemark.html
                 }
             })
         })

@@ -10,6 +10,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-polyfill-io`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {

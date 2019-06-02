@@ -37,8 +37,6 @@ LazyLoader.propTypes = {
     alt: PropTypes.string,
     style: PropTypes.object,
     containerClassName: PropTypes.string,
-    loadedClassName: PropTypes.string,
-    loadingClassName: PropTypes.string,
     onClick: PropTypes.func,
     onLoad: PropTypes.func.isRequired,
     loaded: PropTypes.bool.isRequired

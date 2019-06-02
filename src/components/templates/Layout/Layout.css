@@ -16,6 +16,8 @@ body {
     min-width: 100%;
     display: flex;
     flex-flow: column nowrap;
+    font-family: 'Karla', sans-serif;
+    color: #393E41;
 }
 
 main {
@@ -314,4 +316,22 @@ div > .blog_card:last-child {
     .blog_pic > img {
         border-radius: 0.5em 0 0 0;
     }
+}
+
+/* BLOG POST */
+
+.post_body {
+    margin-bottom: 2rem;
+}
+
+.post_body > h2 {
+    margin: 1.5rem 0;
+    font-size: 1.675rem;
+    font-family: 'Rubik', sans-serif;
+}
+
+.post_body > p {
+    margin: 1rem 0;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
 }
