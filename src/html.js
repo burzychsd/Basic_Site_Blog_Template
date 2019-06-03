@@ -14,15 +14,15 @@ export default function HTML(props) {
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
+        {props.preBodyComponents}
+        <noscript key="noscript" id="gatsby-noscript">
+          This app works best with JavaScript enabled.
+        </noscript>
         <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
           <input type="text" name="username" />
           <input type="email" name="email" />
           <textarea name="message"></textarea>
         </form>
-        {props.preBodyComponents}
-        <noscript key="noscript" id="gatsby-noscript">
-          This app works best with JavaScript enabled.
-        </noscript>
         <div
           key={`body`}
           id="___gatsby"
