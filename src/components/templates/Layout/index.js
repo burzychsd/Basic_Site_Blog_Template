@@ -20,13 +20,13 @@ const Layout = ({ children }) => (
         <Transition
         native
         config={{ mass: 1, tension: 60, friction: 20 }}
-        keys={location.pathname}
+        key={location.pathname}
         from={{ opacity: 0 }}
         enter={{ opacity: 1 }}
         leave={{ opacity: 0 }}
         >
         {() => style => (
-          <animated.main style={{...style}}>{children}</animated.main>
+          <animated.main style={style}>{children}</animated.main>
         )}
         </Transition>
         </div>

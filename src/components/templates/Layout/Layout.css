@@ -20,14 +20,21 @@ body {
     color: #393E41;
 }
 
+header, main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
 main {
     padding-top: calc(64px + 1.5rem);
 }
 
+form[name='Contact Form'] {
+    width: 100%;
+}
+
 #site_wrapper {
     position: relative;
-    max-width: 960px;
-    margin: 0 auto;
     flex: 1 0 auto;
     min-height: 100vh;
 }

@@ -1,12 +1,16 @@
 // DEPENDENCIES
-import React from 'react'
+import React, { Fragment } from 'react'
 import tw from 'tailwind.macro'
 
 // COMPONENTS
 import SEO from '../components/templates/SEO'
+import ContactAboveTheFold from '../components/organisms/ContactAboveTheFold'
 
 const ContactPage = () => (
-    <SEO title="Contact" keywords={[`website`, `personal`, `blog`]} />
+    <Fragment>
+        <SEO title="Contact" keywords={[`website`, `personal`, `blog`]} />
+        <ContactAboveTheFold />
+    </Fragment>
 )
 
 export default ContactPage
