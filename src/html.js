@@ -28,6 +28,16 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
+<<<<<<< HEAD
+=======
+        <form name="Contact Form" data-netlify netlify-honeypot="__bf" hidden>
+          <input type="hidden" name="form-name" value="Contact Form">
+          <input type="text" name="__bf" style="display: none;"></input>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <textarea name="message"></textarea>
+        </form>
+>>>>>>> ebdb7f13fe33fbfd9298b676b627eb6b14703355
         {props.postBodyComponents}
       </body>
     </html>
