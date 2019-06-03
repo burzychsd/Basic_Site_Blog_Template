@@ -29,7 +29,7 @@ main {
     padding-top: calc(64px + 1.5rem);
 }
 
-form[name='contact'] {
+form[name='contact_basic'] {
     width: 100%;
 }
 

@@ -31,6 +31,11 @@ const Layout = ({ children }) => (
         </Transition>
         </div>
         <Footer></Footer>
+        <form name='contact_basic' data-netlify='true' hidden>
+          <input type='text' name='name' />
+          <input type='email' name='email' />
+          <textarea name='message'></textarea>
+        </form>
       </Fragment>
     )}
   </Location>
