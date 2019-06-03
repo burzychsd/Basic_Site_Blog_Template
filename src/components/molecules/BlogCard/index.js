@@ -24,7 +24,7 @@ const BlogCard = (props) => {
     const [ loaded, setLoaded ] = useState(false)
     const onLoad = () => setLoaded(true)
 
-    const config = { mass: 1, tension: 280, friction: 20 }
+    const config = { mass: 1, tension: 750, friction: 50 }
 
     const styles = { opacity: loaded ? 1 : 0, 
         transform: loaded ? `translateY(0)` : `translateY(20px)`}

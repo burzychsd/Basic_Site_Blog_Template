@@ -5,16 +5,13 @@ import PropTypes from 'prop-types'
 
 // COMPONENTS
 import SEO from './../SEO'
-import LazyLoader from './../../molecules/LazyLoader'
 import Flex from './../../atoms/Flex'
 import { H1 as Heading } from './../../atoms/Heading'
 import Text from './../../atoms/Text'
 
-
-
 const BlogPost = ({ pageContext }) => {
 
-    const { slug, title, src, alt, author, date, content } = pageContext
+    const { slug, title, src, author, date, content } = pageContext
 
     const articleProps = {
         as: `article`,
@@ -28,7 +25,7 @@ const BlogPost = ({ pageContext }) => {
 
     const imgContainerProps = {
         reset: true,
-        style: { background: `url('${src}') no-repeat center center / cover` }
+        style: { background: `url('${src}') no-repeat center center / cover`, borderTopLeftRadius: '0.5rem', borderTopRightRadius: '0.5rem' }
     }
 
     return (
