@@ -51,11 +51,11 @@ const ContactAboveTheFold = () => {
             <Title {...titleProps}>Contact Page Template.</Title>
             <Flex reset css={tw`w-full max-w-md flex-col mx-auto lg:max-w-full lg:flex-row mt-4`} style={{ minHeight: 350, height: 'auto' }}>
             <Flex reset css={tw`w-full h-auto bg-grey-lighter lg:mb-0 lg:w-1/2 lg:h-full rounded-lg py-6`} style={{ minHeight: 300 }}>
-                    <NetlifyForm name='Contact Form'>
+                    <NetlifyForm name='contact' honeypotName='bot-field'>
                         {({ loading, success, error }) => (
                             <Flex reset css={tw`w-full h-full relative flex-col justify-around items-center`}>
                                     <FormMessage loading={loading} success={success} error={error} />
-                                    <FormField type="hidden" name="form-name" value="Contact Form" />
+                                    <FormField type="hidden" name="form-name" value="contact" />
                                     <FormField {...textField} />
                                     <FormField {...emailField} />
                                     <FormField {...messageField} css={tw`resize-none`} style={{ minHeight: 120 }} />
